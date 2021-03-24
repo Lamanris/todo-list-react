@@ -35,9 +35,9 @@ const initialState = {
             id: Math.floor(Math.random() * 1000)
         },
     ],
-    // influencedTasks: [],
-    // filteredTasks: [],
-    // sortedTasks: [],
+    influencedTasks: [],
+    filteredTasks: [],
+    isSorting: false,
 }
 
 export const TasksContextProvider = ({children}) => {
@@ -48,20 +48,17 @@ export const TasksContextProvider = ({children}) => {
     const [isEditingTask, setIsEditingTask] = useState(false)
     const [toEditTask, setToEditTask] = useState({})
 
-    // useEffect(() => {
-    //     setInfuencedTasks()
-    // },[state.tasks])
-    //
-    // useEffect(() => {
-    //     setSortedTasks()
-    // },[state.tasks, state.influencedTasks])
+    useEffect(() => {
+        setInfluencedTasks()
+        setFilterTasks()
+    },[state.tasks])
 
-    // const setInfuencedTasks = () => dispatch({type: 'SET_INFLUENCED_TASKS'})
-    // const setSortedTasks = () => dispatch({type: 'SET_SORTED_TASKS'})
-    const addTask = (task) => dispatch({type: 'ADD_TASK', payload : task})
-    const deleteTask = (id) => dispatch({type: 'DELETE_TASK', payload : id})
-    const editTask = (id, value) => dispatch({type: 'EDIT_TASK', payload : id, editPayload: value})
-    const sortTasks = (condition) => dispatch({type: 'SORT_TASKS', payload: condition})
+    const setInfluencedTasks = () => dispatch({type: 'SET_INFLUENCED_TASKS'})
+    const setFilterTasks = () => dispatch({type: 'SET_FILTERED_TASKS'})
+    const setIsSorting = (condition) => dispatch({type: 'SET_IS_SORTING', payload: condition})
+    const addTask = (task) => dispatch({type: 'ADD_TASK', payload: task})
+    const deleteTask = (id) => dispatch({type: 'DELETE_TASK', payload: id})
+    const editTask = (id, value) => dispatch({type: 'EDIT_TASK', payload: id, editPayload: value})
     const filterTasks = (type) => dispatch({type: 'FILTER_TASKS', payload: type})
 
     const contextValues = {
@@ -75,8 +72,8 @@ export const TasksContextProvider = ({children}) => {
         isEditingTask,
         setToEditTask,
         toEditTask,
-        sortTasks,
-        filterTasks
+        filterTasks,
+        setIsSorting
     }
     return (
         <TasksContext.Provider value={contextValues}>
