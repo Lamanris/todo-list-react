@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './assets/styles/main.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {TasksContextProvider} from "./context/tasks-context";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <TasksContextProvider>
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    </TasksContextProvider>,
   document.getElementById('root')
 );
 

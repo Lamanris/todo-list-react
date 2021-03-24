@@ -1,0 +1,99 @@
+.todo {
+  max-width: 400px;
+  margin: 0 auto;
+  &__title {
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+  &__subtitle {
+    color: #929191;
+  }
+  &__text {
+    color: black;
+  }
+  &__btn {
+    padding: 2px 10px;
+    cursor: pointer;
+  }
+  &-list {
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 20px;
+    max-height: 400px;
+    overflow: auto;
+    margin-bottom: 20px;
+    &__task {
+      border: 1px solid black;
+      border-radius: 2px;
+      padding: 20px;
+      background: #f8f6f6;
+      margin-bottom: 20px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      &-title {
+        font-size: 24px;
+      }
+      &-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      &-description {
+        margin-top: 10px;
+      }
+      &-controls {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  &-controls {
+    border: 1px solid black;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    &__sort {
+      display: flex;
+      align-items: flex-start;
+      &-checkbox {
+        margin: 3px 8px 0 0;
+        cursor: pointer;
+      }
+    }
+    &__select {
+      width: 80px;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.task-update {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 20px;
+  margin-bottom: 30px;
+  &__item {
+    display: flex;
+    justify-content: flex-end;
+    &-input {
+      width: 180px;
+      margin-left: 15px;
+      margin-bottom: 10px;
+      padding: 0 5px;
+      outline: none;
+    }
+  }
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__btn-save {
+    margin-right: 5px;
+  }
+}
